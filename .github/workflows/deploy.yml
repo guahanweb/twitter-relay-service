@@ -18,11 +18,7 @@ jobs:
         id: build-helper
         run: |
           PACKAGE_JSON_PATH="${1-.}"
-          PACKAGE_VERSION=$(cat ${PACKAGE_JSON_PATH}/package.json | jq '.version' | tr -d '"')
           echo ::set-output name=current-version::$PACKAGE_VERSION
-        outputs:
-          current-version:
-            description: Current version defined in the package.json file
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -38,8 +34,8 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: 
-          IMAGE_TAG: ${{ steps.build-helper.outputs.current-version }}
+          ECR_REPOSITORY: twitter-relay-service
         run: |
+          IMAGE_TAG=$(cat ./package.json | jq '.version' | tr -d '"')
           echo docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           echo docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
