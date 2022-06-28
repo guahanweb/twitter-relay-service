@@ -21,9 +21,10 @@ async function main() {
     const twitter = new TwitterConnector({ token: config.bearerToken });
     twitter.connect();
     twitter.on('data', (data) => {
+        logger.debug('twitter:', data);
         sockets.broadcast(data)
     });
-    twitter.on('error', (err) => console.warn(err));
+    twitter.on('error', (err) => logger.warn('twitter:', { err }));
 
     // finally, spin up the server
     const app = await createServer(config, sockets);

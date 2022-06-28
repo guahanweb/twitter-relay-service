@@ -1,0 +1,7 @@
+node_modules
+dist
+.env
+.eslintrc.js
+jest.config.js
+README.md
+*.log

@@ -1,0 +1,12 @@
+{
+    "rules": [
+        {
+            "value": "(from:Lucasfilm OR @Lucasfilm) -is:retweet",
+            "tag": "lucasfilm content"
+        },
+        {
+            "value": "(from:Disney OR @Disney) -is:retweet",
+            "tag": "disney content"
+        }
+    ]
+}

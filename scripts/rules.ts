@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import config from '../src/config'
 import logger from '../src/logger'
 import { TwitterConnector } from '../src/twitter-connector'
@@ -14,16 +16,9 @@ async function main() {
     }
 
     // add whatever our current set is
-    const rules = [
-        {
-            value: '(from:Lucasfilm OR @Lucasfilm) -is:retweet',
-            tag: 'lucasfilm content'
-        },
-        {
-            value: '(from:Disney OR @Disney) -is:retweet',
-            tag: 'disney content'
-        }
-    ];
+    const filename = path.resolve(__dirname, '../data/rules.json');
+    const payload = JSON.parse(fs.readFileSync(filename, 'utf8'));
+    const { rules } = payload;
 
     await twitter.setRules(rules);
     logger.info('rules set', { rules });
