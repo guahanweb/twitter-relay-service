@@ -167,6 +167,7 @@ export class TwitterConnector extends EventEmitter {
         });
 
         if (response.statusCode !== 201) {
+            console.error(response.body);
             throw new Error(response.body);
         }
 

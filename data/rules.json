@@ -1,12 +1,12 @@
 {
     "rules": [
         {
-            "value": "(from:Lucasfilm OR @Lucasfilm) -is:retweet",
-            "tag": "lucasfilm content"
+            "value": "(from:Xbox OR from:XboxGamePass OR @Xbox OR @XboxGamePass OR from:BethesdaStudios OR @BethesdaStudios OR from:Blizzard_Ent OR from:ATVI_AB OR @Blizzard_Ent OR @ATVI_AB) -is:retweet",
+            "tag": "xbox gaming"
         },
         {
-            "value": "(from:Disney OR @Disney) -is:retweet",
-            "tag": "disney content"
+            "value": "(from:AllThingsOpen OR from:OS101Series OR @AllThingsOpen OR @OS101Series OR #AllThingsOpen) -is:retweet",
+            "tag": "ato"
         }
     ]
 }
