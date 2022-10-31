@@ -1,11 +1,11 @@
 {
     "rules": [
         {
-            "value": "(from:Xbox OR from:XboxGamePass OR @Xbox OR @XboxGamePass OR from:BethesdaStudios OR @BethesdaStudios OR from:Blizzard_Ent OR from:ATVI_AB OR @Blizzard_Ent OR @ATVI_AB) -is:retweet",
-            "tag": "xbox gaming"
+            "value": "#JavaScript OR #NodeJS OR #React OR #VueJS OR #AngularJS",
+            "tag": "js"
         },
         {
-            "value": "(from:AllThingsOpen OR from:OS101Series OR @AllThingsOpen OR @OS101Series OR #AllThingsOpen) -is:retweet",
+            "value": "from:AllThingsOpen OR from:OS101Series OR @AllThingsOpen OR @OS101Series OR #AllThingsOpen OR #ATO2022",
             "tag": "ato"
         }
     ]
